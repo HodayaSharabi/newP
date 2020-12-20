@@ -1,0 +1,22 @@
+
+
+<img id="logo" src="../../assets/logoDoarim.png" alt="">
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close"  [routerLink]="['/']" >&times;</span>
+        <div [style.z-index]="3">
+            <div [style.z-index]="3">
+                <p>כניסת לקוח</p>
+                <input type="button" class="btn btn-light" (click)="SignApp()" value="?? משתמש חדש">
+<br>
+                <input name="CuCode" class="btn btn-light" [(ngModel)]="CustomerCode" type="password" placeholder="הקש קוד אישי">
+                <input type="submit" href="*" class="btn btn-secondary" value="הכנס" (click)="InsertCustomer()">
+            </div>
+        </div>
+    </div>
+
+</div>

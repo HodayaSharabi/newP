@@ -1,0 +1,45 @@
+
+
+
+<div class="row">
+    <div class="col-75">
+      <div class="container">
+        <form >
+        
+          <div class="row">
+            <div class="col-50">
+                <input type="text" name="PersonalCode" placeholder="קוד אישי" [(ngModel)]="upDateDetails.courierPersonalCode">
+                <input type="text" name="Tz" placeholder="תעודת זהות" [(ngModel)]="upDateDetails.courierTz">
+                <input type="text" name="firstName" placeholder="שם פרטי" [(ngModel)]="upDateDetails.courierFirstName">
+                <input type="text" name="LastName" placeholder="שם משפחה" [(ngModel)]="upDateDetails.courierLastName">
+                <input type="text" name="Address" placeholder="כתובת" [(ngModel)]="upDateDetails.courierAddress">
+                <input type="text" name="City" placeholder="עיר" [(ngModel)]="upDateDetails.courierCity">
+                <input type="text" name="Phone" placeholder="פלאפון" [(ngModel)]="upDateDetails.courierPhone">
+                <input type="text" name="Status" placeholder="מצב" [(ngModel)]="upDateDetails.courierStatus">
+                <input type="text" name="TypeOfTransport" placeholder="סוג רכב"
+                    [(ngModel)]="upDateDetails.courierTypeOfTransport">
+  
+              <div class="row">
+                <div class="col-50">
+                    <!-- <input type="reset" value="איפוס" class="btn"> -->
+                    <!-- <input type="reset"> -->
+                </div>
+                <div class="col-50">
+                    <input type="submit" (click)="upDateCouriersDetails()" value="שמירה" class="btn">
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-50">
+                <img id="logo" src="../../assets/logoDoarim.png" alt="">
+
+            </div>
+            
+          </div>
+        
+          <!-- <input type="submit" value="Continue to checkout" class="btn"> -->
+        </form>
+      </div>
+    </div>
+  </div>
+  

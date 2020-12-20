@@ -1,0 +1,25 @@
+
+
+
+<img id="logo" src="../../assets/logoDoarim.png" alt="">
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close"  [routerLink]="['/']" >&times;</span>
+        <div [style.z-index]="3">
+            <div [style.z-index]="3">
+                <div [style.z-index]="3">
+                    <p>כניסת משלוחן</p>
+
+                    <input name="CoCode" class="btn btn-light" [(ngModel)]="CourierCode" type="password" placeholder="הקש קוד אישי">
+                    <input type="submit" class="btn btn-secondary" value="הכנס" (click)="InsertCourier()">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

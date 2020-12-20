@@ -1,0 +1,26 @@
+<br> <br> <br> <br> <br>
+<div id="form" [style.z-index]="3">
+    <p class="d-flex justify-content-center">צרו איתנו קשר</p>
+    <h2 class="d-flex justify-content-center">אתם מוזמנים לפנות אלינו, נשמח לשמוע מכם!</h2>
+    <h2 class="d-flex justify-content-center">ניתן ליצור איתנו קשר גם בטלפון בשעות העבודה.</h2>
+    <h2 class="d-flex justify-content-center">מלאו את הטופס ואנו נחזור אליכם בהקדם!</h2>
+    <input type="text" class="input-group-text d-flex justify-content-center" placeholder="שם מלא"
+        [(ngModel)]="contactFile.fullName" name="fullName">
+    <input type="text" class="input-group-text d-flex justify-content-center" placeholder=" טלפון "
+        [(ngModel)]="contactFile.phone">
+    <input type="text" class="input-group-text d-flex justify-content-center" placeholder="דואר אלקטרוני"
+        [(ngModel)]="contactFile.email">
+    <select class="custom-select d-flex justify-content-center" id="application"
+        [(ngModel)]="contactFile.theCauseOfReferral">
+        <option value="1">קבלת הצעת מחיר</option>
+        <option value="2">שירות לקוחות</option>
+        <option value="3">תמיכה טכנית</option>
+        <option value="4">דרושים</option>
+        <option value="5">הנהלת חשבונות</option>
+    </select>
+    <br>
+    <input class="btn btn-secondary d-flex justify-content-center" type="submit" (click)="SendMasage()">
+
+</div>
+
+<img id="logo" src="../../assets/logoDoarim.png" alt="">

@@ -1,0 +1,19 @@
+<!-- <p>customer-view works!</p> -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div id="bt" class="col d-flex justify-content-around">
+        <a routerLink="UpdateDetails" class="nav-item text-right mr-2 align-self-center" routerLinkActive='active'>
+            <b>עדכון פרטים <i class="	fa fa-address-card-o"></i></b>
+        </a>
+        <a routerLink="MyShipments" class="nav-item text-right mr-2 align-self-center" routerLinkActive='active'>
+            <b>המשלוחים שלי <i class="	fa fa-cart-plus"></i> </b>
+        </a>
+        <a routerLink="CustomerRemoval" class="nav-item text-right mr-2 align-self-center" routerLinkActive='active'>
+            <b>הסרת לקוח <i class="	fa fa-minus-circle"></i></b>
+        </a>
+        <a routerLink="NewShipment" class="nav-item text-right mr-2 align-self-center" routerLinkActive='active'>
+            <b>משלוח חדש <i class="	fa fa-plus-circle"></i></b>
+        </a>
+    </div>
+</nav>
+<app-router-map></app-router-map>
+<router-outlet></router-outlet>

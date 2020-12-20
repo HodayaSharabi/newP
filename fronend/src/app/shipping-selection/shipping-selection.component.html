@@ -1,0 +1,16 @@
+
+
+<div class="row" style="margin-right: 5%;">
+    <div *ngFor="let i of packages" >
+        <div class="card col-sm" style="width: 18rem; text-align: center;">
+            <div class="card-body " >
+                <p class="card-text">קוד משלוח: {{i.PackageId}}</p>
+                <p class="card-text">כתובת איסוף: {{i.CollectionAddress}}</p>
+                <p class="card-text">כתובת יעד: {{i.Destination}}</p>
+                <p class="card-text">משקל: {{i.Weigth}}</p>
+                <button class="btn btn-secondary">עוד</button>
+            </div>
+        </div>
+    </div>
+
+  </div>

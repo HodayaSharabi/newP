@@ -1,0 +1,18 @@
+<img id="logo" src="../../assets/logoDoarim.png" alt="">
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close"  [routerLink]="['/']">&times;</span>
+        <div [style.z-index]="3">
+            <p>כניסת מנהל</p>
+
+            <input name="MCode" class="btn btn-light" [(ngModel)]="ManagerCode" type="password"
+                placeholder="הקש קוד אישי">
+            <input type="submit" class="btn btn-secondary" value="הכנס" (click)="InsertManager()">
+        </div>
+    </div>
+
+</div>

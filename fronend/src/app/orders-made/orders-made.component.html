@@ -1,0 +1,31 @@
+
+
+<div class="row" style="margin-right: 5%;">
+    <div *ngFor="let i of packages" >
+        <div class="card col-sm" style="width: 18rem; text-align: center;">
+            <div class="card-body " >
+                <p class="card-text" id="madeInShipingFront">קוד חבילה: {{i.PackageId}}</p>
+                <p class="card-text" id="madeInShipingFront">כתובת איסוף: {{i.CollectionAddress}}</p>
+                <p class="card-text" id="madeInShipingFront">קומת איסוף: {{i.Cfloor}}</p>
+                <p class="card-text" id="madeInShipingFront">כתובת יעד: {{i.Destination}}</p>
+                <p class="card-text" id="madeInShipingFront">קומת יעד: {{i.Dfloor}}</p>
+                <p class="card-text" id="madeInShipingFront">שם פרטי: {{i.FirstName}}</p>
+                <p class="card-text" id="madeInShipingFront">שם משפחה: {{i.LastName}}</p>
+                <p class="card-text" id="madeInShipingFront">אמייל: {{i.Email}}</p>
+                <p class="card-text" id="madeInShipingFront">טלפון שולח: {{i.SenderPhone}}</p>
+                <p class="card-text" id="madeInShipingFront">שם בחשבונית: {{i.InvoiceName}}</p>
+                <p class="card-text" id="madeInShipingFront">טלפון מקבל המשלוח: {{i.PhoneReceivesShipping}}</p>
+                <p class="card-text" id="madeInShipingFront">טלפון שולח: {{i.SenderPhone}}</p>
+                <p class="card-text" id="madeInShipingFront">שם חברה: {{i.CompanyName}}</p>
+                <p class="card-text" id="madeInShipingFront">שם מלא: {{i.FullName}}</p>
+                <p class="card-text" id="madeInShipingFront">משך השליחה: {{i.DuringSending}}</p>
+                <p class="card-text" id="madeInShipingFront">משקל: {{i.Weigth}}</p>
+                <p class="card-text" id="madeInShipingFront">תאריך נוכחי: {{i.DateNow}}</p>
+                <p class="card-text" id="madeInShipingFront">תאור: {{i.Description}}</p>
+                <p class="card-text" id="madeInShipingFront">סטטוס: {{i.Status}}</p>
+            </div>
+        </div>
+    </div>
+
+  </div>
+&nbsp;

@@ -1,0 +1,39 @@
+
+<div class="row">
+    <div class="col-75">
+      <div class="container">
+        <form >
+        
+          <div class="row">
+            <div class="col-50">
+                <input type="text" name="personalCode" placeholder="קוד אישי" [(ngModel)]="upDateDetails.customerPersonalCode">
+                <input type="text" name="firstName" placeholder="שם פרטי" [(ngModel)]="upDateDetails.customerFirstName">
+                <input type="text" name="lastName" placeholder="שם משפחה" [(ngModel)]="upDateDetails.customerLastName">
+                <input type="text" name="address" placeholder="כתובת" [(ngModel)]="upDateDetails.customerAddress">
+                <input type="text" name="city" placeholder="עיר" [(ngModel)]="upDateDetails.customerCity">
+                <input type="text" name="phone" placeholder="פלאפון" [(ngModel)]="upDateDetails.customerPhone">
+  
+              <div class="row">
+                <div class="col-50">
+                    <!-- <input type="reset" value="איפוס" class="btn"> -->
+                    <!-- <input type="reset"> -->
+                </div>
+                <div class="col-50">
+                    <input type="submit" (click)="upDateCouriersDetails()" value="שמירה" class="btn">
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-50">
+                <img id="logo" src="../../assets/logoDoarim.png" alt="">
+
+            </div>
+            
+          </div>
+        
+          <!-- <input type="submit" value="Continue to checkout" class="btn"> -->
+        </form>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,32 @@
+<!-- <p>customer-removal works!</p> -->
+<div class="container">
+    <div class="row-4"></div>
+    <div class="row-4">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <h3 class="text-center">מחק אותי מרשימת הלקוחות</h3>
+            <input type="submit" value="מחק" (click)="DeleteFromCustomers()">
+        </div>
+        <div class="col"></div>
+    </div>
+    <div class="row"></div>
+</div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close"  [routerLink]="['/CustomerView']">&times;</span>
+        <div [style.z-index]="3">
+            <p></p>
+
+            <h2 class="text-center"> <b>        אתה בטוח שאתה רוצה לצאת מרשימת הלקוחות שלנו???  </b>
+           </h2>
+            <button type="button" (click)="DeleteFromCustomers()" class="btn btn-success">כן</button>
+             <button type="button" [routerLink]="['/CustomerView']" class="btn btn-danger">לא</button>
+
+        </div>
+    </div>
+
+</div>

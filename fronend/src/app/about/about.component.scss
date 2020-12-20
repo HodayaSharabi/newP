@@ -1,0 +1,66 @@
+// #logo {
+//     position: absolute;
+//     opacity: 0.4;
+//     margin-top: -78vh;
+//     width: 58%;
+//     margin-left: 25vw;
+// }
+// #carousel-item,#carousel-item active {
+//     height: 5% !important;
+
+// }
+p{
+    font-size: 150%;
+    color: black;
+    z-index: 4;
+    position: relative;
+    text-align: center;
+    width: 65vw;
+    // margin-left: 18vw;
+    // margin-top: 3vw;
+}
+// #ReturnToHomePage {
+//     color: grey;
+//     margin:2vw;
+// }
+
+.tablink {
+    background-color: #555;
+    color: white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 25%;
+  }
+  
+  /* Change background color of buttons on hover */
+  .tablink:hover {
+    background-color: #777;
+  }
+  
+  /* Set default styles for tab content */
+  .tabcontent {
+    color: white;
+    display: none;
+    padding: 1px;
+    text-align: center;
+  }
+  
+.container {
+    position: relative;
+    text-align: center;
+    color:black;
+    direction: rtl;
+  }
+
+ 
+  
+  .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }

@@ -1,0 +1,15 @@
+
+    <div class="row" style="margin-right: 5%;">
+        <div *ngFor="let i of comments" >
+            <div class="card col-sm" style="width: 18rem; text-align: center;">
+                <div class="card-body " >
+                    <p class="card-text" id="madeInShipingFront">מספר משלוח: {{i.responseId}}</p>
+                    <p class="card-text" id="madeInShipingFront">שם לקוח: {{i.fullName}}</p>
+                    <p class="card-text" id="madeInShipingFront">פלאפון: {{i.phone}}</p>
+                    <p class="card-text" id="madeInShipingFront">מייל: {{i.email}}</p>
+                    <p class="card-text" id="madeInShipingFront">תגובת הלקוח: {{i.response}}</p>
+                </div>
+            </div>
+        </div>
+
+      </div>

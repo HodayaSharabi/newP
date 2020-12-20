@@ -1,0 +1,74 @@
+
+
+
+
+
+<div class="row">
+    <div class="col-75">
+      <div class="container">
+        <agm-map [latitude]="lat" [longitude]="lng">
+
+            <agm-direction *ngFor="let i of listOriginDestination" [origin]="i.origin" [destination]="i.destination">
+        
+            </agm-direction>
+            <!-- <agm-marker *ngFor="let marker of listWaypoints" [latitude]="marker.Lat" [longitude]="marker.Lng"></agm-marker> -->
+        
+        </agm-map>
+      </div>
+    </div>
+    <div class="col-25">
+      <div class="container">
+        <h3 data-toggle="modal" data-target="#exampleModal"> <span class="fa fa-map-marker" style="color: grey;"> </span>    <b>כתובת</b> לאסוף חבילה  <i class="	fa fa-times" style="color: red;"></i> <i class="	fa fa-check" style="color: greenyellow;"></i></h3>
+        <h3 data-toggle="modal" data-target="#exampleModal"> <span class="fa fa-map-marker"  style="color: grey;"></span>     <b>כתובת</b> להתקשר  <i class="	fa fa-times" style="color: red;"></i> <i class="	fa fa-check" style="color: greenyellow;"></i></h3>
+        <h3 data-toggle="modal" data-target="#exampleModal"> <span class="fa fa-map-marker"  style="color: #1E90FF;"></span>     <b>כתובת</b>  <i class="	fa fa-times" style="color: red;"></i> <i class="	fa fa-check" style="color: greenyellow;"></i></h3>
+        <h3 data-toggle="modal" data-target="#exampleModal"> <span class="fa fa-map-marker"  style="color: #1E90FF;"></span>     <b>כתובת</b>  <i class="	fa fa-times" style="color: red;"></i> <i class="	fa fa-check" style="color: greenyellow;"></i></h3>
+        <h3 data-toggle="modal" data-target="#exampleModal"> <span class="fa fa-map-marker"  style="color: #1E90FF;"></span>     <b>כתובת</b>  <i class="	fa fa-times" style="color: red;"></i> <i class="	fa fa-check" style="color: greenyellow;"></i></h3>
+
+        <hr>
+        <p> <span class="price" style="color:black"><b>יום נעים!!</b></span></p>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <!-- Modal -->
+  <div class="modal fade" style="direction: rtl;" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+  
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h3 class="modal-title" dir="rtl" id="exampleModalLabel">פרטי חבילה </h3>
+        </div>
+        <div class="modal-body">
+          
+          <agm-map [latitude]="lat" [longitude]="lng">
+
+            <agm-direction *ngFor="let i of listOriginDestination" [origin]="i.origin" [destination]="i.destination">
+        
+            </agm-direction>
+            <!-- <agm-marker *ngFor="let marker of listWaypoints" [latitude]="marker.Lat" [longitude]="marker.Lng"></agm-marker> -->
+        
+        </agm-map>
+        <label for="">נאסף?   <i class="	fa fa-times" style="color: red;"></i> <i class="	fa fa-check" style="color: greenyellow;"> </i></label>
+        <label>
+          <input type="checkbox" checked="checked" name="sameadr">נאסף 
+        </label>
+<h2> פרטי חבילה :</h2>
+
+          <p class="card-text">קוד משלוח:</p>
+          <p פרטי חבעclass="card-text">כתובת איסוף:</p>
+          <p class="card-text">כתובת יעד: </p>
+          <p class="card-text">משקל: </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">סגור</button>
+          <button data-dismiss="modal" type="button"  class="btn btn-success"> שמור שיוניים</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

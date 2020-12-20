@@ -1,0 +1,29 @@
+<!-- <h3>הארות והערות למשלוחנים</h3>
+<div *ngFor="let i of commentsList" class="mx-auto" style="display: inline-block;">
+    <div class="card d-flex flex-row bd-highlight mb-3" style="width: 18rem; text-align: center;">
+        <div class="card-body d-inline mx-auto mt-2 mb-3">
+            <p class="card-text" id="madeInShipingFront"><b>קוד חבילה:</b>
+                {{i.ResponseId}}</p>
+            <p class="card-text" id="madeInShipingFront"><b>שם מלא:</b> {{i.FullName}}</p>
+            <p class="card-text" id="madeInShipingFront"><b>פלאפון:</b> {{i.Phone}}</p>
+            <p class="card-text " id="madeInShipingFront"><b>אמייל:</b>{{i.Email}} </p>
+            <p class="card-text" id="madeInShipingFront"><b>תגובה:</b> {{i.Response}}</p>
+        </div>
+    </div>
+</div> -->
+
+<div class="row" style="margin-right: 5%;">
+    <div *ngFor="let i of commentsList">
+        <div class="card col-sm" style="width: 18rem; text-align: center;">
+            <div class="card-body " >
+                <p class="card-text" id="madeInShipingFront"><b>קוד חבילה:</b>
+                    {{i.ResponseId}}</p>
+                <p class="card-text" id="madeInShipingFront"><b>שם מלא:</b> {{i.FullName}}</p>
+                <p class="card-text" id="madeInShipingFront"><b>פלאפון:</b> {{i.Phone}}</p>
+                <p class="card-text " id="madeInShipingFront"><b>אמייל:</b>{{i.Email}} </p>
+                <p class="card-text" id="madeInShipingFront"><b>תגובה:</b> {{i.Response}}</p>
+            </div>
+        </div>
+    </div>
+
+  </div>
