@@ -20,13 +20,13 @@ namespace BL
         {
             double? distance = 9999999999999999;
             Couriers selectC = new Couriers();
-           var CourierTypeOfTransport=0;
+            var CourierTypeOfTransport = 0;
 
-            if (package1.Weigth<=50)
+            if (package1.Weigth <= 50)
                 CourierTypeOfTransport = 1;
-            if (package1.Weigth > 50  && package1.Weigth <200)
+            if (package1.Weigth > 50 && package1.Weigth < 200)
                 CourierTypeOfTransport = 2;
-            if( package1.Weigth > 200)
+            if (package1.Weigth > 200)
                 CourierTypeOfTransport = 3;
             List<Couriers> LC = db.Couriers.Where(c => c.CourierStatus == 2 && c.CourierTypeOfTransport.Value == CourierTypeOfTransport).ToList();
             foreach (var c in LC)
@@ -35,7 +35,7 @@ namespace BL
                 // בחירת השליח שהצרחק שלו אכ קטן 
                 double? dis1 = GetDistance(c.Lat.Value, c.Lon.Value, package1.SourcePackageLat.Value, package1.SourcePackageLon.Value);
                 double? dis2 = GetDistance(c.Lat.Value, c.Lon.Value, package1.SourcePackageLat.Value, package1.SourcePackageLon.Value);
-                if(dis1+dis2 < distance)
+                if (dis1 + dis2 < distance)
                 {
                     selectC = c;
                     distance = dis1 + dis2;
@@ -105,6 +105,11 @@ namespace BL
             double num25 = (num23 / 1024) * (256 + (num23 * (-128 + (num23 * (74 - (47 * num23))))));
             double num26 = (num25 * y) * (num22 + ((num25 / 4) * ((x * (-1 + ((2 * num22) * num22))) - ((((num25 / 6) * num22) * (-3 + ((4 * y) * y))) * (-3 + ((4 * num22) * num22))))));
             return new double?((num2 * num24) * (num18 - num26));
+        }
+        public static Dto.PackagesDTO GetPackageByID(int ID)
+        {
+            Packages P = db.Packages.FirstOrDefault(p => p.PackageId == ID);
+            return Dto.PackagesDTO.ConvertDto(P);
         }
 
         //public static void SortPackages()

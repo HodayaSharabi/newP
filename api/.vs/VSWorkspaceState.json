@@ -5,6 +5,6 @@
     "\\DTO",
     "\\ShipmentsCompany"
   ],
-  "SelectedNode": "\\ShipmentsCompany\\Web.config",
+  "SelectedNode": "\\BL\\PackageBL.cs",
   "PreviewInSolutionExplorer": false
 }

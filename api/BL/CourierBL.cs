@@ -83,7 +83,7 @@ namespace BL
         public static List<MapTOCurios> GetCouriersDetailMaps()
         {
             List<MapTOCurios> ListMTC = new List<MapTOCurios>();
-            List<Couriers> C = db.Couriers.Where(c=> c.CourierStatus==2). ToList();
+            List<Couriers> C = db.Couriers.Where(c => c.CourierStatus == 2).ToList();
             foreach (var couriers in C)
             {
                 MapTOCurios MTC = new MapTOCurios();
@@ -93,15 +93,15 @@ namespace BL
                 List<Packages> P = db.Packages.Where(p => p.CourierCode == couriers.CourierId).ToList();
                 MTC.LatLng = new List<LanLng>();
                 LanLng latlng;
-                if (P.Count!=0)
+                if (P.Count != 0)
                 {
-                    MTC.latitude = P.First(p=> p.CourierCode==couriers.CourierId).SourcePackageLat;
+                    MTC.latitude = P.First(p => p.CourierCode == couriers.CourierId).SourcePackageLat;
                     MTC.longitude = P.First(p => p.CourierCode == couriers.CourierId).SourcePackageLon;
                 }
-               
+
                 foreach (var pac in P)
                 {
-      
+
                     latlng = new LanLng();
                     latlng.Lat = pac.SourcePackageLat;
                     latlng.Lng = pac.SourcePackageLon;
@@ -110,44 +110,49 @@ namespace BL
                     latlng.Lat = pac.DestinationPackageLat;
                     latlng.Lng = pac.DestinetionPackageLon;
                     MTC.LatLng.Add(latlng);
-             
+
                 }
                 ListMTC.Add(MTC);
             }
             return ListMTC;
-           
+
         }
         // מחזיר משלוחן עם רשימת נקודות על המפה 
         public static MapTOCurios GetCourierDetailMaps(CourierDTO courier)
-       {
-            Couriers C = db.Couriers.FirstOrDefault(c => c.CourierId==courier.CourierId);
+        {
+            Couriers C = db.Couriers.FirstOrDefault(c => c.CourierId == courier.CourierId);
 
-                MapTOCurios MTC = new MapTOCurios();
-                MTC.CourierId = courier.CourierId;
-                MTC.CourierFirstName = courier.CourierFirstName;
-                MTC.CourierLastName = courier.CourierLastName;
-                List<Packages> P = db.Packages.Where(p => p.CourierCode == courier.CourierId).ToList();
-                MTC.LatLng = new List<LanLng>();
-                LanLng latlng;
-                if (P.Count != 0)
-                {
-                    MTC.latitude = P.First(p => p.CourierCode == courier.CourierId).SourcePackageLat;
-                    MTC.longitude = P.First(p => p.CourierCode == courier.CourierId).SourcePackageLon;
-                }
+            MapTOCurios MTC = new MapTOCurios();
+            MTC.CourierId = courier.CourierId;
+            MTC.CourierFirstName = courier.CourierFirstName;
+            MTC.CourierLastName = courier.CourierLastName;
+            List<Packages> P = db.Packages.Where(p => p.CourierCode == courier.CourierId).ToList();
+            MTC.LatLng = new List<LanLng>();
+            LanLng latlng;
+            if (P.Count != 0)
+            {
+                MTC.latitude = P.First(p => p.CourierCode == courier.CourierId).SourcePackageLat;
+                MTC.longitude = P.First(p => p.CourierCode == courier.CourierId).SourcePackageLon;
+            }
 
-                foreach (var pac in P)
-                {
+            foreach (var pac in P)
+            {
 
-                    latlng = new LanLng();
-                    latlng.Lat = pac.SourcePackageLat;
-                    latlng.Lng = pac.SourcePackageLon;
-                    MTC.LatLng.Add(latlng);
-                    latlng = new LanLng();
-                    latlng.Lat = pac.DestinationPackageLat;
-                    latlng.Lng = pac.DestinetionPackageLon;
-                    MTC.LatLng.Add(latlng);
+                latlng = new LanLng();
+                latlng.Lat = pac.SourcePackageLat;
+                latlng.Lng = pac.SourcePackageLon;
+                latlng.address = pac.CollectionAddress;
+                latlng.packegId = pac.PackageId;
+                latlng.done = true;
+                MTC.LatLng.Add(latlng);
+                latlng = new LanLng();
+                latlng.Lat = pac.DestinationPackageLat;
+                latlng.Lng = pac.DestinetionPackageLon;
+                latlng.address = pac.Description;
+                latlng.packegId = pac.PackageId;
+                MTC.LatLng.Add(latlng);
 
-                }
+            }
             //LanLng current= new LanLng();
             //current.Lat = courier.Lat;
             //current.Lng = courier.Lon;
@@ -155,15 +160,16 @@ namespace BL
             return MTC;
 
         }
-        public static List<LanLng> sortLatLon(List<LanLng> ListLatLon , LanLng beginPoint)
+        // מיון רשימת הנקודות לפי המרחק 
+        public static List<LanLng> sortLatLon(List<LanLng> ListLatLon, LanLng beginPoint)
         {
             List<LanLng> mewList = new List<LanLng>();
             mewList.Add(beginPoint);
             LanLng currentPoint = beginPoint;
             LanLng nextPoint = new LanLng();
             double? distans = 999999999999;// הערך אכי גבוהה שאפשר 
-              // מציאת הנקודה הראשונה שאכי קרובה למקום המגורים של המשלוחן 
-            while (ListLatLon.Count!=0)
+                                           // מציאת הנקודה הראשונה שאכי קרובה למקום המגורים של המשלוחן 
+            while (ListLatLon.Count != 0)
             {
                 distans = 999999999999;
                 foreach (var item in ListLatLon)
@@ -179,7 +185,7 @@ namespace BL
                 }
 
             }
-          
+
             return mewList;
         }
         public static List<CouriersCommentsDTO> CourierComments(int courierId)
@@ -204,7 +210,7 @@ namespace BL
         //}
         public static List<PackagesDTO> GetMyShipments(int courier)
         {
-            List<Packages> s = db.Packages.Where(x => x.CourierCode== courier).ToList();
+            List<Packages> s = db.Packages.Where(x => x.CourierCode == courier).ToList();
             return PackagesDTO.ListToDTO(s);
 
         }
@@ -223,14 +229,19 @@ public class LanLng
 {
     public double? Lat { get; set; }
     public double? Lng { get; set; }
+    public string address { get; set; }
+    public int packegId { get; set; }
+    public bool done { get; set; }
+
+
 }
 public class MapTOCurios
- {
+{
     public int CourierId { get; set; }
     public string CourierFirstName { get; set; }
     public string CourierLastName { get; set; }
     public double? latitude { get; set; }
-    public double?  longitude { get; set; }
+    public double? longitude { get; set; }
     public List<LanLng> LatLng { get; set; }
 
 }
