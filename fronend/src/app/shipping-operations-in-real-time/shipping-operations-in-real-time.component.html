@@ -8,6 +8,7 @@
             <div class="card-body " >
                 <p>קוד משלוחן: {{i.CourierId}}</p>
                 <p>שם משלוחן: {{i.CourierFirstName}} {{i.CourierLastName}}</p>
+                <a [routerLink]="['/CourierView/ShipmentsCourierView']" > לפרטים נוספים</a>
                 <agm-map [latitude]="i.latitude" [longitude]="i.longitude" style="height: 300px" >
                
                   <agm-marker *ngFor="let marker of i.LatLng" [latitude]="marker.Lat" [longitude]="marker.Lng"></agm-marker>

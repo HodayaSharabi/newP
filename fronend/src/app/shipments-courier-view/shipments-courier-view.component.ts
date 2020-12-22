@@ -5,10 +5,11 @@ import { Packages } from '../class/Packages';
 import { Router } from '@angular/router';
 import { Observable, TimeoutError } from 'rxjs';
 import { CourierViewService } from '../services/courier-view.service';
-import { MapTOCurios } from '../shipping-operations-in-real-time/shipping-operations-in-real-time.component';
+import { addressP, MapTOCurios } from '../shipping-operations-in-real-time/shipping-operations-in-real-time.component';
 import { MapsAPILoader } from '@agm/core';
 import { localizedString } from '@angular/compiler/src/output/output_ast';
-
+import { PackageService } from '../services/package.service';
+import Swal from 'sweetalert2/dist/sweetalert2.js'; 
 @Component({
   selector: 'app-shipments-courier-view',
   templateUrl: './shipments-courier-view.component.html',
@@ -19,12 +20,25 @@ export class ShipmentsCourierViewComponent implements OnInit {
   packages: Packages[] = [];
   couriersWay: Couriers[] = [];
   couriers: Couriers[] = [];
+  selectPac:any = new Packages();
   mTC: MapTOCurios = new MapTOCurios();
+  selectAAddress:addressP= new addressP();
   listOriginDestination: routerOnMap[] = new Array();
   listWaypoints:any= [];
   constructor(public shipmentsCourierViewService: ShipmentsCourierViewService,
-    public router: Router, public courierViewService: CourierViewService) { }
-
+    public router: Router, public courierViewService: CourierViewService , 
+    public packageService: PackageService) { }
+    topend()  
+    {  
+      Swal.fire({  
+        position: 'top-middel',  
+        icon: 'success',  
+        title: '  כל הכבוד !!!', 
+        text: 'עכשיו עבור ליעד הבא... המשך יום טוב:)',
+        showConfirmButton: false,  
+        timer: 2000  
+      })  
+    } 
   ngOnInit(): void {
     this.getDirection();
     // this.GetCourierWay();
@@ -47,6 +61,7 @@ export class ShipmentsCourierViewComponent implements OnInit {
         originDestination.destination.lng =  tt[index+1].Lng;
         }
         this.listOriginDestination.push(originDestination);
+        
         // this.listWaypoints.push({ location: { lat:element.Lat, lng: element.Lng } })
       });
 
@@ -70,7 +85,13 @@ export class ShipmentsCourierViewComponent implements OnInit {
   origin = { lat: 32.0761814, lng: 34.8327112 };
   destination = { lat: 31.7606638, lng: 35.199288 };
   public waypoints: any = [];
+  selectAddress(p)
+  {
+    this.selectPac.packageIdPac= p.packegId;
+    this.packageService.getPackageByID( p.packegId).subscribe(res => {this.selectPac= res;
+    console.log(this.selectPac)})
 
+  }
   getDirection() {
     this.origin = { lat: 34.833736, lng: 34.833736 }
     this.destination = { lat: 32.077622, lng: 34.833736 }

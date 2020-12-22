@@ -17,13 +17,14 @@
       </div>
     </div>
     <div class="col-25">
-      <div class="container">
-        <h3 data-toggle="modal" data-target="#exampleModal"> <span class="fa fa-map-marker" style="color: grey;"> </span>    <b>כתובת</b> לאסוף חבילה  <i class="	fa fa-times" style="color: red;"></i> <i class="	fa fa-check" style="color: greenyellow;"></i></h3>
-        <h3 data-toggle="modal" data-target="#exampleModal"> <span class="fa fa-map-marker"  style="color: grey;"></span>     <b>כתובת</b> להתקשר  <i class="	fa fa-times" style="color: red;"></i> <i class="	fa fa-check" style="color: greenyellow;"></i></h3>
+      <div class="container" >
+        <div *ngFor="let p of mTC.LatLng">
+        <h3 (click)="selectAddress(p)" (click)="selectAAddress=p" data-toggle="modal" data-target="#exampleModal"> <span class="fa fa-map-marker" style="color: #1E90FF;"> </span>    <b>{{p.address}}</b>   </h3>
+        <!-- <h3 data-toggle="modal" data-target="#exampleModal"> <span class="fa fa-map-marker"  style="color: grey;"></span>     <b>כתובת</b> להתקשר  <i class="	fa fa-times" style="color: red;"></i> <i class="	fa fa-check" style="color: greenyellow;"></i></h3>
         <h3 data-toggle="modal" data-target="#exampleModal"> <span class="fa fa-map-marker"  style="color: #1E90FF;"></span>     <b>כתובת</b>  <i class="	fa fa-times" style="color: red;"></i> <i class="	fa fa-check" style="color: greenyellow;"></i></h3>
         <h3 data-toggle="modal" data-target="#exampleModal"> <span class="fa fa-map-marker"  style="color: #1E90FF;"></span>     <b>כתובת</b>  <i class="	fa fa-times" style="color: red;"></i> <i class="	fa fa-check" style="color: greenyellow;"></i></h3>
-        <h3 data-toggle="modal" data-target="#exampleModal"> <span class="fa fa-map-marker"  style="color: #1E90FF;"></span>     <b>כתובת</b>  <i class="	fa fa-times" style="color: red;"></i> <i class="	fa fa-check" style="color: greenyellow;"></i></h3>
-
+        <h3 data-toggle="modal" data-target="#exampleModal"> <span class="fa fa-map-marker"  style="color: ;"></span>     <b>כתובת</b>  <i class="	fa fa-times" style="color: red;"></i> <i class="	fa fa-check" style="color: greenyellow;"></i></h3> -->
+</div>
         <hr>
         <p> <span class="price" style="color:black"><b>יום נעים!!</b></span></p>
       </div>
@@ -41,28 +42,33 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-          <h3 class="modal-title" dir="rtl" id="exampleModalLabel">פרטי חבילה </h3>
+          <h3 class="modal-title" dir="rtl" id="exampleModalLabel">פרטי כתובת </h3>
         </div>
-        <div class="modal-body">
+        <div class="modal-body" >
           
-          <agm-map [latitude]="lat" [longitude]="lng">
-
-            <agm-direction *ngFor="let i of listOriginDestination" [origin]="i.origin" [destination]="i.destination">
-        
-            </agm-direction>
+          <agm-map [latitude]="selectAAddress.Lat" [longitude]="selectAAddress.Lng" style="height: 300px" >
+               
+            <agm-marker  [latitude]="selectAAddress.Lat" [longitude]="selectAAddress.Lng"></agm-marker>
+          </agm-map>
             <!-- <agm-marker *ngFor="let marker of listWaypoints" [latitude]="marker.Lat" [longitude]="marker.Lng"></agm-marker> -->
-        
-        </agm-map>
-        <label for="">נאסף?   <i class="	fa fa-times" style="color: red;"></i> <i class="	fa fa-check" style="color: greenyellow;"> </i></label>
-        <label>
-          <input type="checkbox" checked="checked" name="sameadr">נאסף 
-        </label>
-<h2> פרטי חבילה :</h2>
 
-          <p class="card-text">קוד משלוח:</p>
-          <p פרטי חבעclass="card-text">כתובת איסוף:</p>
-          <p class="card-text">כתובת יעד: </p>
-          <p class="card-text">משקל: </p>
+        <hr>
+        <div style="direction: rtl; float: right;">
+        <div class="row">
+  
+          <input type="checkbox" id="cbx" style="display:none"/>
+          <label (click)="topend()" for="cbx" class="toggle"><span> </span> </label>    
+          <label for="">בוצע?  </label>
+        </div>
+     
+          <h2> פרטי חבילה :</h2>
+
+          <p class="card-text"> <b>קוד משלוח:</b>{{selectPac.PackageId}} </p>
+          <p פרטי חבעclass="card-text"><b>כתובת : </b> {{selectAAddress.address}} </p>
+          <p class="card-text"><b>משקל:</b>  {{selectPac.Weigth}}</p>
+          <p class="card-text"><b>הערות:</b> </p> 
+
+        </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">סגור</button>
@@ -71,4 +77,3 @@
       </div>
     </div>
   </div>
-  

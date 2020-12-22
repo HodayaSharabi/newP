@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Couriers } from '../class/Couriers';
 import { Observable } from 'rxjs';
+import Swal from 'sweetalert2/dist/sweetalert2.js'; 
 import { ShippingOperationsInRealTimeService } from '../services/shipping-operations-in-real-time.service';
 import { NgbPaginationNumber } from '@ng-bootstrap/ng-bootstrap';
 @Component({
@@ -67,6 +68,13 @@ export class ShippingOperationsInRealTimeComponent implements OnInit {
     }
   }
 }
+export class addressP{
+  Lat: number;
+  Lng: number;
+  address:string;
+  packegId: number;
+  done: boolean;
+}
 
 export class MapTOCurios{
   CourierId: number;
@@ -74,5 +82,5 @@ export class MapTOCurios{
   CourierLastName: string;
   latitude :number;
   longitude:number;
-  LatLng:Array<{Lat: number, Lng: number}>;
+  LatLng:Array<addressP>;
 }
